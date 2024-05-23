@@ -175,7 +175,7 @@ createApp({
   },
 
   methods: {
-    addMessage() {
+    addMessage(event) {
       const myMessage = { messages: this.newMessage };
       this.contacts.push(myMessage);
       this.newMessage = null;
@@ -185,5 +185,7 @@ createApp({
     selectedContact(currentIndex) {
       return this.contacts[currentIndex];
     },
+
+    automaticReply() {},
   },
 }).mount("#app");

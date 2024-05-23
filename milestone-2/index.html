@@ -67,7 +67,7 @@
           <!-- BOX ELENCO CHAT -->
           <div class="chat-list">
             <div
-              @click="changeChat(currentIndex)"
+              @click="currentIndex = index"
               v-for="(avatar, index) in contacts"
               class="profile d-flex"
             >

@@ -76,14 +76,14 @@
               v-for="(avatar, index) in contacts"
               class="profile d-flex"
             >
-              <img :src="contacts[index].avatar" alt="My avatar" />
+              <img :src="avatar.avatar" alt="My avatar" />
               <div class="name-access">
-                <span class="name">{{contacts[index].name}}</span>
+                <span class="name">{{avatar.name}}</span>
                 <span class="access font-size-small"
-                  >{{contacts[index].messages[currentIndex].message}}</span
+                  >{{avatar.messages[currentIndex].message}}</span
                 >
 
-                <span>{{contacts[index].messages[0].date}}</span>
+                <span>{{avatar.messages[currentIndex].date}}</span>
               </div>
             </div>
           </div>
@@ -99,10 +99,7 @@
               @click="currentIndex = index"
               class="profile-details d-flex align-center"
             >
-              <img
-                :src="selectedContact(currentIndex).avatar"
-                alt="My avatar"
-              />
+              <img :src="contacts[currentIndex].avatar" alt="My avatar" />
               <div class="name-access">
                 <span class="name">{{selectedContact(currentIndex).name}}</span>
                 <span class="access font-size-medium"
@@ -136,18 +133,6 @@
                   <span class="font-size-small">{{message.date}}</span>
                 </div>
               </div>
-
-              <!-- <div class="message-2 width-60">
-                <div class="d-flex">
-                  <p class="chat-content">
-                    {{contacts[index].messages[index].message}}
-                  </p>
-                  <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="d-flex justify-end">
-                  <span class="font-size-small">16:43</span>
-                </div>
-              </div> -->
             </div>
           </div>
           <!-- FINE MESSAGGI CHAT APERTA -->
