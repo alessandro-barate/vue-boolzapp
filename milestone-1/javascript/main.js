@@ -172,4 +172,10 @@ createApp({
       currentIndex: 0,
     };
   },
+
+  methods: {
+    changeChat(currentIndex) {
+      this.currentIndex = currentIndex;
+    },
+  },
 }).mount("#app");
