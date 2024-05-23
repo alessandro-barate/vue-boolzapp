@@ -173,9 +173,5 @@ createApp({
     };
   },
 
-  methods: {
-    changeChat(index) {
-      this.currentIndex = index;
-    },
-  },
+  methods: {},
 }).mount("#app");
