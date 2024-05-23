@@ -8,3 +8,10 @@ Esercizio fatto in mobile first
 @import url(./_partials/general.css);
 @import url(./_partials/tablet-style.css);
 @import url(./_partials/desktop-style.css);
+
+/*****************
+VUE JS
+*****************/
+[v-cloak] {
+  display: none;
+}
