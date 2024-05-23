@@ -181,5 +181,9 @@ createApp({
       this.newMessage = null;
       console.log(myMessage);
     },
+
+    selectedContact(currentIndex) {
+      return this.contacts[currentIndex];
+    },
   },
 }).mount("#app");
