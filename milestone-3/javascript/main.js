@@ -176,7 +176,10 @@ createApp({
 
   methods: {
     addMessage() {
-      console.log("ciao");
+      const myMessage = { messages: this.newMessage };
+      this.contacts.push(myMessage);
+      this.newMessage = null;
+      console.log(myMessage);
     },
   },
 }).mount("#app");
