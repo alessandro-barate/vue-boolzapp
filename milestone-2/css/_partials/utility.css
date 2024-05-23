@@ -1,0 +1,102 @@
+/********************
+ELEMENTS
+********************/
+
+button {
+    border: none;
+}
+
+
+/********************
+DISPLAY
+********************/
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.overflow-grow {
+    overflow-y: scroll;
+    flex-grow: 1;
+}
+
+
+/********************
+ALIGNMENT
+********************/
+
+.align-center {
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: end;
+}
+
+
+/********************
+SPACING
+********************/
+
+.padding-tb {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.width-60 {
+    width: 60%;
+}
+
+
+/********************
+FONT
+********************/
+
+.font-size-big {
+    font-size: 14px;
+}
+
+.font-size-medium {
+    font-size: 13px;
+}
+
+.font-size-small {
+    font-size: 12px;
+}
+
+
+/********************
+BACKGROUND COLORS
+********************/
+
+.bg-white {
+    background-color: #EAEAEA;
+}
+
+.bg-lightblue {
+    background-color: #8FDAFC;
+}
+
+.bg-lime {
+    background-color: #D4F9BB;
+}

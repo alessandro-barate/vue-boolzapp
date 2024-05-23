@@ -1,0 +1,10 @@
+/*********************
+Esercizio fatto in mobile first
+*********************/
+
+@import url(./_partials/variables.css);
+@import url(./_partials/reset.css);
+@import url(./_partials/utility.css);
+@import url(./_partials/general.css);
+@import url(./_partials/tablet-style.css);
+@import url(./_partials/desktop-style.css);
