@@ -168,7 +168,7 @@ createApp({
           ],
         },
       ],
-      index: 0,
+
       currentIndex: 0,
     };
   },
