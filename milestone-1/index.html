@@ -66,17 +66,17 @@
 
           <!-- BOX ELENCO CHAT -->
           <div class="chat-list">
-            <div class="profile d-flex">
-              <img src="./img/avatar_6.jpg" alt="My avatar" />
+            <div v-for="(avatar, index) in contacts" class="profile d-flex">
+              <img :src="contacts[index].avatar" alt="My avatar" />
               <div class="name-access">
-                <span class="name">Beatrice</span>
+                <span class="name">{{contacts[index].name}}</span>
                 <span class="access font-size-small"
                   >Lorem ipsum dolor sit amet</span
                 >
               </div>
             </div>
 
-            <div class="profile d-flex">
+            <!-- <div class="profile d-flex">
               <img src="./img/avatar_1.jpg" alt="My avatar" />
               <div class="name-access">
                 <span class="name">Aldo</span>
@@ -164,7 +164,7 @@
                   >Lorem ipsum dolor sit amet</span
                 >
               </div>
-            </div>
+            </div> -->
           </div>
           <!-- FINE BOX ELENCO CHAT -->
         </div>
