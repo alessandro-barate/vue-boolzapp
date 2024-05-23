@@ -169,6 +169,7 @@ createApp({
         },
       ],
       index: 0,
+      currentIndex: 0,
     };
   },
 }).mount("#app");
