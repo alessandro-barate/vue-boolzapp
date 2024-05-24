@@ -174,6 +174,8 @@ createApp({
       newMessage: null,
       newMessageArray: [],
       globalMessages: null,
+      chatInput: null,
+      chats: null,
     };
   },
 
@@ -200,8 +202,14 @@ createApp({
       return this.contacts[currentIndex];
     },
 
-    searchChat() {
-      console.log("ciao");
+    listChats() {
+      if (this.chatInput) {
+        this.chats = this.name.filter((element) => {
+          return element.name.includes(this.chatInput);
+        });
+      } else {
+        return this.contacts;
+      }
     },
 
     automaticReply() {},
