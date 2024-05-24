@@ -169,10 +169,11 @@ createApp({
         },
       ],
 
-      index: 0,
       currentIndex: 0,
       messagesIndex: 0,
       newMessage: null,
+      newMessageArray: [],
+      globalMessages: null,
     };
   },
 
@@ -187,16 +188,20 @@ createApp({
           },
         ],
       };
-      if ((this.currentIndex = this.index)) {
-        this.contacts.push(myMessage);
-      }
-
+      this.newMessageArray.push(myMessage);
+      this.contacts.push(this.newMessageArray);
+      this.globalMessages = this.contacts.concat(this.newMessageArray);
       this.newMessage = null;
       console.log(myMessage);
+      console.log(this.globalMessages);
     },
 
     selectedContact(currentIndex) {
       return this.contacts[currentIndex];
+    },
+
+    searchChat() {
+      console.log("ciao");
     },
 
     automaticReply() {},

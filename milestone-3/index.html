@@ -60,7 +60,12 @@
             <div class="d-flex align-center">
               <i class="fas fa-magnifying-glass"></i>
             </div>
-            <input type="text" placeholder="Cerca o inizia una nuova chat" />
+            <input
+              @keyup="searchChat"
+              type="text"
+              id="search-field"
+              placeholder="Cerca o inizia una nuova chat"
+            />
           </div>
           <!-- FINE BOX RICERCA -->
 
@@ -96,7 +101,7 @@
               @click="currentIndex = index"
               class="profile-details d-flex align-center"
             >
-              <!-- Bug to fix: l'ora è sempre quella del primo messaggio e non dell'ultimo -->
+              <!-- TOFIX: l'ora è sempre quella del primo messaggio e non dell'ultimo -->
               <img :src="contacts[currentIndex].avatar" alt="My avatar" />
               <div>
                 <h4 class="name">{{selectedContact(currentIndex).name}}</h4>
@@ -115,8 +120,7 @@
           </div>
           <!-- FINE INFO CHAT APERTA CON OPZIONI -->
 
-          <!-- MESSAGGI CHAT APERTA
-           -->
+          <!-- MESSAGGI CHAT APERTA -->
           <div class="chat-screen overflow-grow">
             <div class="chat-container">
               <div
