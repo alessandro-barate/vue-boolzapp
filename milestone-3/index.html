@@ -66,9 +66,6 @@
 
           <!-- BOX ELENCO CHAT -->
 
-          <!-- bug da fixare - 1-Stampa in ogni chat come ultimo messaggio
-            il primo e non l'ultimo
-          2-le info dei messaggi nelle chat si fermano alla 3a persona -->
           <div class="chat-list">
             <div
               @click="currentIndex = index"
@@ -99,6 +96,7 @@
               @click="currentIndex = index"
               class="profile-details d-flex align-center"
             >
+              <!-- Bug to fix: l'ora è sempre quella del primo messaggio e non dell'ultimo -->
               <img :src="contacts[currentIndex].avatar" alt="My avatar" />
               <div>
                 <h4 class="name">{{selectedContact(currentIndex).name}}</h4>
