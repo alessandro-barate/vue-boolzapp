@@ -169,6 +169,7 @@ createApp({
         },
       ],
 
+      index: 0,
       currentIndex: 0,
       messagesIndex: 0,
       newMessage: null,
@@ -177,8 +178,19 @@ createApp({
 
   methods: {
     addMessage(event) {
-      const myMessage = { messages: this.newMessage };
-      this.contacts.push(myMessage);
+      const myMessage = {
+        messages: [
+          {
+            date: "17/11/2024 18:44:37",
+            message: this.newMessage,
+            status: "sent",
+          },
+        ],
+      };
+      if ((this.currentIndex = this.index)) {
+        this.contacts.push(myMessage);
+      }
+
       this.newMessage = null;
       console.log(myMessage);
     },
