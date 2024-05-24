@@ -78,7 +78,7 @@
               <img :src="avatar.avatar" alt="My avatar" />
               <div class="name-access">
                 <h4 class="name">{{avatar.name}}</h4>
-                <p class="access font-size-small">
+                <p class="access font-size-medium">
                   {{avatar.messages[messagesIndex].message}}
                 </p>
                 <span class="access font-size-small"
@@ -123,10 +123,10 @@
             <div class="chat-container">
               <div
                 v-for="(message, index) in contacts[currentIndex].messages"
-                :class="message.status === 'sent' ? 'message-1 bg-lime' : 'message-2 width-60'"
+                :class="message.status === 'sent' ? 'message-1 bg-lime width-60' : 'message-2 width-60'"
               >
-                <div class="d-flex justify-end">
-                  <p class="chat-content width-60">{{message.message}}</p>
+                <div class="d-flex">
+                  <p class="chat-content">{{message.message}}</p>
                   <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="d-flex justify-end">
