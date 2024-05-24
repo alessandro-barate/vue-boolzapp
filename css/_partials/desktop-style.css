@@ -1,144 +1,137 @@
 @media screen and (min-width: 992px) {
+  body {
+    background-color: #d9dbd4;
+    background: linear-gradient(0deg, #d9dbd4 80%, #019588 20%);
+  }
 
-    body {
-        background-color: #D9DBD4;
-        background: linear-gradient(0deg, #D9DBD4 80%, #019588 20%);
-    }
-
-
-    /***********************
+  /***********************
     CONTAINERS
     ***********************/
 
-    .container {
-        max-width: 1050px;
-        height: 90%;
-    }
+  .container {
+    max-width: 1050px;
+    height: 90%;
+  }
 
-    .col-big {
-        width: 70%;
-    }
+  .col-big {
+    width: 70%;
+  }
 
-    .col-small {
-        width: 30%;
-        background-color: #FFFFFF;
-        border-right: 1px solid rgb(214, 214, 214);
-        flex-shrink: 0;
-        overflow: hidden;
-        flex-direction: column;
-    }
+  .col-small {
+    width: 30%;
+    background-color: #ffffff;
+    border-right: 1px solid rgb(214, 214, 214);
+    flex-shrink: 0;
+    overflow: hidden;
+    flex-direction: column;
+  }
 
-
-    /***********************
+  /***********************
     DISPLAY
     ***********************/
 
-    #receive,
-    .search-chat input,
-    .chat-list .name-access,
-    .profile i,
-    .text-box div:first-child,
-    .text-box div:last-child {
-        display: block;
-    }
+  #receive,
+  .search-chat input,
+  .chat-list .name-access,
+  .profile i,
+  .text-box div:first-child,
+  .text-box div:last-child {
+    display: block;
+  }
 
-    .col-small,
-    .search-chat,
-    #notification,
-    .col-small .options,
-    .text-box {
-        display: flex;
-    }
+  .col-small,
+  .search-chat,
+  #notification,
+  .col-small .options,
+  .text-box {
+    display: flex;
+  }
 
-
-    /***********************
+  /***********************
     AVATAR INFO
     ***********************/
 
-    .profile i {
-        color: #B1B1B1;
-    }
+  .profile i {
+    color: #b1b1b1;
+  }
 
-
-    /***********************
+  /***********************
     RICERCA ED ELENCO CHAT 
     ***********************/
 
-    #snooze {
-        width: 35px;
-        height: 35px;
-        margin-left: 10px;
-        margin-right: 10px;
-        background-color: white;
-        border-radius: 50%;
-        text-align: center;
-    }
-    
-    #snooze i {
-        font-size: 16px;
-        color: #8FDAFC;
-        line-height: 36px;
-        
-    }
+  #snooze {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+  }
 
-    .search-chat {
-        align-items: center;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background-color: #FAFAFA;
-    }
-    
-    .search-chat div:first-child {
-        background-color: #FAFAFA;
-        height: 100%;
-        padding-left: 15px; 
-    }
-    
-    .search-chat input {  
-        width: 93%;
-        border: none;
-        padding-left: 20px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-right: 10px;
-        border-radius: 2px;
-    }
+  #snooze i {
+    font-size: 16px;
+    color: #8fdafc;
+    line-height: 36px;
+  }
 
-    .chat-list {
-        overflow-y: scroll;
-        flex-grow: 1;
-    }
-    
-    .chat-list .access {
-        color: #B6B9BB;
-    }
-    
-    .chat-list .profile {
-        border-bottom: 1px solid rgb(214, 214, 214);
-        align-items: center;
-    }
+  .search-chat {
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #fafafa;
+  }
 
+  .search-chat div:first-child {
+    background-color: #fafafa;
+    height: 100%;
+    padding-left: 15px;
+  }
 
-    /*****************************
+  .search-chat input {
+    width: 93%;
+    border: none;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    border-radius: 2px;
+  }
+
+  .chat-list {
+    overflow-y: scroll;
+    flex-grow: 1;
+  }
+
+  .chat-list .access {
+    color: #b6b9bb;
+  }
+
+  .chat-list .profile {
+    border-bottom: 1px solid rgb(214, 214, 214);
+    align-items: center;
+  }
+
+  /*****************************
     SEZIONE SCRIVI UN MESSAGGIO
     *****************************/
 
-    .text-box {
-        justify-content: center;
-        align-items: center;
-    }
+  .text-box {
+    justify-content: center;
+    align-items: center;
+  }
 
-    .text-box div:first-child,
-    .text-box div:last-child {
-        width: 10%;
-    }
+  .text-box div:first-child,
+  .text-box div:last-child {
+    width: 10%;
+  }
 
-    .text-box div:nth-child(2) {
-        width: 80%;
-    }
+  .text-box div:nth-child(2) {
+    width: 80%;
+  }
 
-    .text-box i {
-        font-size: 20px;
-        color: #6B7376;
-    }
+  .text-box i {
+    font-size: 20px;
+    color: #6b7376;
+  }
 }

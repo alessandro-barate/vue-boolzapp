@@ -44,7 +44,7 @@
               <i class="fas fa-bell-slash"></i>
             </div>
 
-            <div class="name-access">
+            <div>
               <span id="receive" class="name font-size-big"
                 >Ricevi notifiche di nuovi messaggi</span
               >
@@ -77,7 +77,7 @@
             >
               <img :src="avatar.avatar" alt="My avatar" />
               <div class="name-access">
-                <span class="name">{{avatar.name}}</span>
+                <h4 class="name">{{avatar.name}}</h4>
                 <span class="access font-size-small"
                   >{{avatar.messages[messagesIndex].message}}</span
                 >
@@ -100,8 +100,8 @@
               class="profile-details d-flex align-center"
             >
               <img :src="contacts[currentIndex].avatar" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">{{selectedContact(currentIndex).name}}</span>
+              <div>
+                <h4 class="name">{{selectedContact(currentIndex).name}}</h4>
                 <span class="access font-size-medium"
                   >Ultimo accesso oggi alle
                   {{selectedContact(currentIndex).messages[messagesIndex].date}}</span
