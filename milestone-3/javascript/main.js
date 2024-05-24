@@ -170,6 +170,7 @@ createApp({
       ],
 
       currentIndex: 0,
+      messagesIndex: 0,
       newMessage: null,
     };
   },
