@@ -171,6 +171,7 @@ createApp({
 
       currentIndex: 0,
       messagesIndex: 0,
+      dateIndex: 0,
       newMessage: null,
     };
   },
