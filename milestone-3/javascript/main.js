@@ -187,24 +187,47 @@ createApp({
           },
         ],
       };
-      this.contacts[this.currentIndex].messages.push(this.newMessage);
-      this.newMessage = null;
+      this.contacts[this.currentIndex].messages.push(this.myMessage);
+      this.newMessage = "";
+      console.log(this.myMessage);
+      //this.automaticReply();
     },
+
+    // automaticReply() {
+    //   setTimeout(() => {
+    //     const replyMessage = {
+    //       date: "17/11/2024 18:44:38",
+    //       message: "Ok!",
+    //       status: "received",
+    //     };
+    //     this.contacts[this.currentIndex].messages.push(this.replyMessage);
+    //   }, 1000);
+    // },
 
     selectedContact(currentIndex) {
       return this.contacts[currentIndex];
     },
 
+    // showDate() {
+    //   if (
+    //     this.selectedContact.messages[
+    //       this.selectedContact.messages[messagesIndex].length - 1
+    //     ].status === "received"
+    //   ) {
+    //     return this.selectedContact.messages[
+    //       this.selectedContact.messages[messagesIndex].length - 1
+    //     ].date;
+    //   }
+    // },
+
     listChats() {
       if (this.chatInput) {
         this.chats = this.name.filter((element) => {
-          return element.name.includes(this.chatInput);
+          return element.this.name.includes(this.chatInput);
         });
       } else {
         return this.contacts;
       }
     },
-
-    automaticReply() {},
   },
 }).mount("#app");
