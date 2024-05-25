@@ -172,15 +172,12 @@ createApp({
       currentIndex: 0,
       messagesIndex: 0,
       newMessage: null,
-      newMessageArray: [],
-      globalMessages: null,
       chatInput: null,
-      chats: null,
     };
   },
 
   methods: {
-    addMessage(event) {
+    addMessage() {
       const myMessage = {
         messages: [
           {
@@ -190,12 +187,8 @@ createApp({
           },
         ],
       };
-      this.newMessageArray.push(myMessage);
-      this.contacts.push(this.newMessageArray);
-      this.globalMessages = this.contacts.concat(this.newMessageArray);
+      this.contacts[this.currentIndex].messages.push(this.newMessage);
       this.newMessage = null;
-      console.log(myMessage);
-      console.log(this.globalMessages);
     },
 
     selectedContact(currentIndex) {
