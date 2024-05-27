@@ -209,7 +209,7 @@ createApp({
     automaticReply() {
       setTimeout(() => {
         const replyMessage = {
-          date: formatMessageTime(myDate),
+          date: myDate,
           message: "Ok!",
           status: "received",
         };
@@ -225,3 +225,5 @@ createApp({
     },
   },
 }).mount("#app");
+
+// BUG: Nei nuovi messaggi generati l'ora non viene visualizzata
