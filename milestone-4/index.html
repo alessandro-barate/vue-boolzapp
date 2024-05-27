@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -20,7 +20,7 @@
     <title>Boolzapp</title>
   </head>
   <body>
-    <div id="app" class="container">
+    <div id="app" class="container" v-cloak>
       <div class="row">
         <!-- CONTENITORE A SINISTRA PICCOLO -->
         <div class="col-small">
@@ -44,7 +44,7 @@
               <i class="fas fa-bell-slash"></i>
             </div>
 
-            <div class="name-access">
+            <div>
               <span id="receive" class="name font-size-big"
                 >Ricevi notifiche di nuovi messaggi</span
               >
@@ -60,108 +60,35 @@
             <div class="d-flex align-center">
               <i class="fas fa-magnifying-glass"></i>
             </div>
-            <input type="text" placeholder="Cerca o inizia una nuova chat" />
+
+            <!-- BUG: Se cerco un contatto mi mostra la conversazione
+            sbagliata. Indice che parte sempre dal contatto 0 -->
+            <input
+              @keyup=""
+              v-model="chatInput"
+              type="text"
+              id="search-field"
+              placeholder="Cerca o inizia una nuova chat"
+            />
           </div>
           <!-- FINE BOX RICERCA -->
 
           <!-- BOX ELENCO CHAT -->
+
           <div class="chat-list">
-            <div class="profile d-flex">
-              <img src="./img/avatar_6.jpg" alt="My avatar" />
+            <div
+              @click="currentIndex = index"
+              v-for="(avatar, index) in filteredContacts"
+              class="profile d-flex"
+            >
+              <img :src="avatar.avatar" alt="My avatar" />
               <div class="name-access">
-                <span class="name">Beatrice</span>
+                <h4 class="name">{{avatar.name}}</h4>
+                <p class="access font-size-medium">
+                  {{ avatar.messages[avatar.messages.length - 1].message}}
+                </p>
                 <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_1.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Aldo</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_5.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Giovanni</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_7.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Giacomo</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_io.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Denise</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_2.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Claudio</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_6.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Sara</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_io.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Ilaria</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_4.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Fabio</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
-                >
-              </div>
-            </div>
-
-            <div class="profile d-flex">
-              <img src="./img/avatar_7.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Giuseppe</span>
-                <span class="access font-size-small"
-                  >Lorem ipsum dolor sit amet</span
+                  >{{ avatar.messages[avatar.messages.length - 1].date }}</span
                 >
               </div>
             </div>
@@ -174,12 +101,16 @@
         <div class="col-big d-flex flex-column">
           <!-- INFO CHAT APERTA CON OPZIONI -->
           <div class="profile d-flex bg-white justify-between">
-            <div class="profile-details d-flex align-center">
-              <img src="./img/avatar_6.jpg" alt="My avatar" />
-              <div class="name-access">
-                <span class="name">Sara</span>
+            <div
+              @click="currentIndex = index"
+              class="profile-details d-flex align-center"
+            >
+              <img :src="contacts[currentIndex].avatar" alt="My avatar" />
+              <div>
+                <h4 class="name">{{selectedContact.name}}</h4>
                 <span class="access font-size-medium"
-                  >Ultimo accesso oggi alle 03:24</span
+                  >Ultimo accesso oggi alle
+                  {{selectedContact.messages[selectedContact.messages.length-1].date}}</span
                 >
               </div>
             </div>
@@ -195,35 +126,16 @@
           <!-- MESSAGGI CHAT APERTA -->
           <div class="chat-screen overflow-grow">
             <div class="chat-container">
-              <div class="message-1 bg-lime">
-                <div class="d-flex justify-end">
-                  <p class="chat-content width-60">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Hic, maxime ratione explicabo dolore nisi temporibus
-                    assumenda sunt vero suscipit, nostrum placeat voluptas amet
-                    voluptate ullam, repudiandae accusantium illum architecto
-                    tempora.
-                  </p>
+              <div
+                v-for="(message, index) in contacts[currentIndex].messages"
+                :class="message.status === 'sent' ? 'message-1 bg-lime width-60' : 'message-2 width-60'"
+              >
+                <div class="d-flex justify-between">
+                  <p>{{message.message}}</p>
                   <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="d-flex justify-end">
-                  <span class="font-size-small">16:43</span>
-                </div>
-              </div>
-
-              <div class="message-2 width-60">
-                <div class="d-flex">
-                  <p class="chat-content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Hic, maxime ratione explicabo dolore nisi temporibus
-                    assumenda sunt vero suscipit, nostrum placeat voluptas amet
-                    voluptate ullam, repudiandae accusantium illum architecto
-                    tempora.
-                  </p>
-                  <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="d-flex justify-end">
-                  <span class="font-size-small">16:43</span>
+                  <span class="font-size-small">{{message.date}}</span>
                 </div>
               </div>
             </div>
@@ -238,7 +150,12 @@
               </button>
             </div>
             <div>
-              <input type="text" placeholder="Scrivi un messaggio" />
+              <input
+                v-model="newMessage"
+                @keyup.enter="addMessage"
+                type="text"
+                placeholder="Scrivi un messaggio"
+              />
             </div>
             <div class="text-center d-flex align-center justify-center">
               <button>
@@ -251,7 +168,22 @@
         <!-- FINE CONTENITORE A DESTRA GRANDE -->
       </div>
     </div>
+
+    <!-- Luxon -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"
+      integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- FINE Luxon -->
+
+    <!-- Vue JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- FINE Vue JS -->
+
+    <!-- JS -->
     <script type="text/javascript" src="./javascript/main.js"></script>
+    <!-- FINE JS -->
   </body>
 </html>
