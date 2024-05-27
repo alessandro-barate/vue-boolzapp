@@ -209,7 +209,7 @@ createApp({
     automaticReply() {
       setTimeout(() => {
         const replyMessage = {
-          date: myDate,
+          date: formatMessageTime(myDate),
           message: "Ok!",
           status: "received",
         };
