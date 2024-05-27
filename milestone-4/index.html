@@ -82,14 +82,17 @@
               class="profile d-flex"
             >
               <img :src="avatar.avatar" alt="My avatar" />
-              <div class="name-access">
+              <div class="name-access width-100">
                 <h4 class="name">{{avatar.name}}</h4>
                 <p class="access font-size-medium">
                   {{ avatar.messages[avatar.messages.length - 1].message}}
                 </p>
-                <span class="access font-size-small"
-                  >{{ avatar.messages[avatar.messages.length - 1].date }}</span
-                >
+                <p class="text-end">
+                  <span class="access font-size-small"
+                    >{{ avatar.messages[avatar.messages.length - 1].date
+                    }}</span
+                  >
+                </p>
               </div>
             </div>
           </div>

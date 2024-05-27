@@ -1,5 +1,7 @@
 "use strict";
 
+const dt = luxon.DateTime;
+const myDate = dt.now("it").toLocaleString(dt.TIME_24_WITH_SECONDS);
 const { createApp } = Vue;
 
 createApp({
@@ -194,7 +196,7 @@ createApp({
     // Aggiungere un nuovo messaggio tramite input
     addMessage() {
       const newMessage = {
-        date: "17/11/2024 18:44:37",
+        date: myDate,
         message: this.newMessage,
         status: "sent",
       };
@@ -207,12 +209,12 @@ createApp({
     automaticReply() {
       setTimeout(() => {
         const replyMessage = {
-          date: "17/11/2024 18:44:39",
+          date: myDate,
           message: "Ok!",
           status: "received",
         };
         this.contacts[this.currentIndex].messages.push(replyMessage);
-      }, 2000);
+      }, 60000);
     },
   },
 }).mount("#app");

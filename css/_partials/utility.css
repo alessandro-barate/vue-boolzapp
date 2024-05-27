@@ -39,6 +39,10 @@ ALIGNMENT
   text-align: center;
 }
 
+.text-end {
+  text-align: end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -62,6 +66,10 @@ SPACING
 
 .padding-left {
   padding-left: 10px;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 .width-60 {
