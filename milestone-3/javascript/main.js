@@ -169,18 +169,20 @@ createApp({
         },
       ],
 
+      // Variabili
       currentIndex: 0,
-      messagesIndex: 0,
       newMessage: "",
       chatInput: "",
     };
   },
 
   computed: {
+    // Accedere all'array contacts
     selectedContact() {
       return this.contacts[this.currentIndex];
     },
 
+    // Ricerca tra i contatti
     filteredContacts() {
       return this.contacts.filter((contact) =>
         contact.name.toLowerCase().includes(this.chatInput.toLowerCase())
@@ -189,6 +191,7 @@ createApp({
   },
 
   methods: {
+    // Aggiungere un nuovo messaggio tramite input
     addMessage() {
       const newMessage = {
         date: "17/11/2024 18:44:37",
@@ -200,6 +203,7 @@ createApp({
       this.automaticReply();
     },
 
+    // Risposta automatica al nuovo messaggio dopo 2 secondi
     automaticReply() {
       setTimeout(() => {
         const replyMessage = {
