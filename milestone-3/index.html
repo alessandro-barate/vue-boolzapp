@@ -61,7 +61,7 @@
               <i class="fas fa-magnifying-glass"></i>
             </div>
             <input
-              @keyup="listChats"
+              @keyup=""
               v-model="chatInput"
               type="text"
               id="search-field"
@@ -75,7 +75,7 @@
           <div class="chat-list">
             <div
               @click="currentIndex = index"
-              v-for="(avatar, index) in contacts"
+              v-for="(avatar, index) in filteredContacts"
               class="profile d-flex"
             >
               <img :src="avatar.avatar" alt="My avatar" />
@@ -102,13 +102,12 @@
               @click="currentIndex = index"
               class="profile-details d-flex align-center"
             >
-              <!-- TOFIX: l'ora è sempre quella del primo messaggio e non dell'ultimo -->
               <img :src="contacts[currentIndex].avatar" alt="My avatar" />
               <div>
-                <h4 class="name">{{selectedContact(currentIndex).name}}</h4>
+                <h4 class="name">{{selectedContact.name}}</h4>
                 <span class="access font-size-medium"
                   >Ultimo accesso oggi alle
-                  {{selectedContact(currentIndex).messages[messagesIndex].date}}</span
+                  {{selectedContact.messages[selectedContact.messages.length-1].date}}</span
                 >
               </div>
             </div>

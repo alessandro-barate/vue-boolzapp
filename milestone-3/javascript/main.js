@@ -171,23 +171,31 @@ createApp({
 
       currentIndex: 0,
       messagesIndex: 0,
-      newMessage: null,
-      chatInput: null,
+      newMessage: "",
+      chatInput: "",
     };
+  },
+
+  computed: {
+    selectedContact() {
+      return this.contacts[this.currentIndex];
+    },
+
+    filteredContacts() {
+      return this.contacts.filter((contact) =>
+        contact.name.toLowerCase().includes(this.chatInput.toLowerCase())
+      );
+    },
   },
 
   methods: {
     addMessage() {
-      const myMessage = {
-        messages: [
-          {
-            date: "17/11/2024 18:44:37",
-            message: this.newMessage,
-            status: "sent",
-          },
-        ],
+      const newMessage = {
+        date: "17/11/2024 18:44:37",
+        message: this.newMessage,
+        status: "sent",
       };
-      this.contacts[this.currentIndex].messages.push(this.myMessage);
+      this.contacts[this.currentIndex].messages.push(this.newMessage);
       this.newMessage = "";
       //this.automaticReply();
     },
@@ -202,31 +210,5 @@ createApp({
     //     this.contacts[this.currentIndex].messages.push(this.replyMessage);
     //   }, 1000);
     // },
-
-    selectedContact(currentIndex) {
-      return this.contacts[currentIndex];
-    },
-
-    // showDate() {
-    //   if (
-    //     this.selectedContact.messages[
-    //       this.selectedContact.messages[messagesIndex].length - 1
-    //     ].status === "received"
-    //   ) {
-    //     return this.selectedContact.messages[
-    //       this.selectedContact.messages[messagesIndex].length - 1
-    //     ].date;
-    //   }
-    // },
-
-    listChats() {
-      if (this.chatInput) {
-        this.chats = this.name.filter((element) => {
-          return element.this.name.includes(this.chatInput);
-        });
-      } else {
-        return this.contacts;
-      }
-    },
   },
 }).mount("#app");
