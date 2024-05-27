@@ -189,7 +189,6 @@ createApp({
       };
       this.contacts[this.currentIndex].messages.push(this.myMessage);
       this.newMessage = "";
-      console.log(this.myMessage);
       //this.automaticReply();
     },
 

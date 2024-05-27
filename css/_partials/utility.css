@@ -60,6 +60,10 @@ SPACING
   padding-bottom: 15px;
 }
 
+.padding-left {
+  padding-left: 10px;
+}
+
 .width-60 {
   width: 60%;
 }
