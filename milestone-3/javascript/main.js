@@ -195,20 +195,20 @@ createApp({
         message: this.newMessage,
         status: "sent",
       };
-      this.contacts[this.currentIndex].messages.push(this.newMessage);
+      this.contacts[this.currentIndex].messages.push(newMessage);
       this.newMessage = "";
-      //this.automaticReply();
+      this.automaticReply();
     },
 
-    // automaticReply() {
-    //   setTimeout(() => {
-    //     const replyMessage = {
-    //       date: "17/11/2024 18:44:38",
-    //       message: "Ok!",
-    //       status: "received",
-    //     };
-    //     this.contacts[this.currentIndex].messages.push(this.replyMessage);
-    //   }, 1000);
-    // },
+    automaticReply() {
+      setTimeout(() => {
+        const replyMessage = {
+          date: "17/11/2024 18:44:39",
+          message: "Ok!",
+          status: "received",
+        };
+        this.contacts[this.currentIndex].messages.push(replyMessage);
+      }, 2000);
+    },
   },
 }).mount("#app");
